@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpine.js Exercise</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</head>
+<body>
+    <div x-data="game()">
+        <h1>Number Guessing Game</h1>
+        <p x-text="randomNumber"></p>
+
+        
+        <p>Guess a number between 1 and 10:</p>
+        <input type="number" x-model="guess">
+        <button x-on:click="checkGuess">Check</button>
+        
+        <p x-text="message"></p>
+        <p x-text="'Attempts: ' + attempts"></p>
+    </div>
+      
+    <script>
+      function game() {
+        return {
+          randomNumber: Math.floor(Math.random() * 10) + 1,
+          guess: '',
+          message: '',
+          attempts: 0,
+          cheat:'',
+          
+          checkGuess() {
+            if (this.guess === this.randomNumber.toString()) {
+
+              this.message = 'Congratulations! You guessed the correct number!';
+            } else {
+              this.message = 'Sorry, try again!';
+            }
+            
+            this.attempts++;
+            this.guess = '';
+            this.cheat=this.randomNumber.toString();
+
+          }
+        };
+      }
+    </script>
+</body>
+</html>
