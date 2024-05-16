@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine.js Exercise</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"></script>
+    <style>
+        /* .chat-container::before {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1); Example background color
+} */
+input:focus {
+  outline: none;
+  border: none;
+}
+    </style>
+</head>
+
+<body class="bg-dark mb-5 text-white">
+    <main>
+        <div class="">
+            <h2 class="border border-danger p-3 text-center"> Num Guessing Game</h2>
+            <div class="w-50 h-150 bg-danger mx-auto">
+                <div x-data="{ isOpen: false }">
+                    <div class="guess-head text-center">
+                        <h3>Here are some rules  how to play</h3>
+                        <div class="btn btn-primary mb-3" @click="isOpen = !isOpen">
+                            <b>Check rules</b>
+                        </div>
+                    </div>
+    
+                    <div class="show-list" x-show="isOpen">
+                        <ul class="">
+                            <li>You have three attempts to guess</li>
+                            <li>If you lose, the actual number will be shown automatically</li>
+                            <li>The page will reload itself</li>
+                            <li>You can play again</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="game-field text-center">
+                    <div x-data="{ isOpen: false }" class="mb-3">
+                        <div class="d-inline">Choose a number between 1 and 10</div>
+                        <div class="btn btn-warning d-inline" @click="isOpen = !isOpen">
+                            <b>Cheat code</b>
+                        </div>
+                        <div x-text="isOpen ? 'true' : 'false'" class="mt-3">Your code is **</div>
+                    </div>
+                
+                    <div class="input-field mb-3">
+                        <input type="text" /><br />
+                        <span class="pop-message text-yellow! m-2">Sorry, incorrect. You have ** more tries</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
